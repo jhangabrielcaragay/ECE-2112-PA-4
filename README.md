@@ -218,8 +218,41 @@ The third problem requires examining how the recorded Average differs across the
 
 ### **DISCUSSION**
 
-### **OVERALL STRUCTURE**
 
+
+
+
+### **OVERALL STRUCTURE**
+```python
+Track_Average = board2.groupby('Track')['Average'].mean().reset_index()
+display(Track_Average)
+
+Gender_Average = board2.groupby('Gender')['Average'].mean().reset_index()
+display(Gender_Average)
+
+Hometown_Average = board2.groupby('Hometown')['Average'].mean().reset_index()
+display(Hometown_Average)
+
+plt.figure(figsize=(20,5))
+plt.subplot(1,3,1)
+plt.bar(Track_Average['Track'], Track_Average['Average'])
+plt.title('By Track')
+plt.xlabel("Track")
+plt.ylabel('Mean')
+
+plt.subplot(1,3,2)
+plt.bar(Gender_Average['Gender'], Gender_Average['Average'])
+plt.title('By Gender')
+plt.xlabel("Gender")
+plt.ylabel('Mean')
+
+plt.subplot(1,3,3)
+plt.bar(Hometown_Average['Hometown'], Hometown_Average['Average'])
+plt.title('By Hometown')
+plt.xlabel("Hometown")
+plt.ylabel('Mean')
+
+```
 
 # History
 
