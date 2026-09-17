@@ -75,8 +75,35 @@ The first problem requires creating a new **DataFrame** named ```VisComm``` by f
 
 ### **DISCUSSION**
 
-asdjhasgdahusdghjasdj
+We first create a DataFrame named ```VisComm```. We then use the uploaded ```.xslx file``` named **board2** together with the ```.loc``` function to specify our parameters using the code:
+```python
+VisComm = board2.loc[
+    (board2['Hometown'] == 'Visayas') &
+    (board2['Track'] == 'Communication'),
+    ['Name', 'Gender', 'Math', 'Electronics', 'Average']]
+```
+> This selects the specific **students** that are needed in this part. 
 
+We then print out our **DataFrame** using the code:
+```python
+display(VisComm)
+print('Number of rows:', VisComm.shape[0])
+```
+> ```.shape[0]``` was used to see the ```number of rows``` **only**.  
+
+This code outputs:
+
+| Index | Name | Gender | Math | Electronics | Average |
+|------:|------|--------|-----:|------------:|--------:|
+| 10 | S11 | Female | 48 | 56 | 54.75 |
+| 11 | S12 | Male | 89 | 67 | 76.00 |
+| 17 | S18 | Male | 81 | 40 | 63.50 |
+| 21 | S22 | Female | 64 | 39 | 62.50 |
+| 27 | S28 | Male | 85 | 53 | 67.75 |
+
+```python
+Number of rows: 5
+```
 
 ### **OVERALL STRUCTURE**
 
@@ -102,17 +129,54 @@ print('Number of rows:', VisComm.shape[0])
 Number of rows: 5
 ```
 
-
 # B. VISAYAS FEMALE DATAFRAME
 
 ### **OBJECTIVE**
 
 The second problem requires creating ```VisFemale``` by filtering students from **Visayas** who are ```Female```, then selecting **Name**, **Track**, **GEAS**, **Electronics**, and **Average**. It also displays students with an **Average** of at least ```60``` without overwriting VisFemale.
 
-
 ### **DISCUSSION**
 
-jhsdghfgshjdgsjghjsghjkds
+We first create a DataFrame named ```VisFemale```. We then use the uploaded ```.xslx file``` named **board2** together with the ```.loc``` function to specify our parameters using the code:
+
+```python
+VisFemale = board2.loc[
+    (board2['Hometown'] == 'Visayas') &
+    (board2['Gender'] == 'Female'),
+    ['Name', 'Track', 'GEAS', 'Electronics', 'Average']]
+```
+
+> This selects the specific **students** that are needed in this part. 
+
+We then print out our DataFrame using the code:
+```python
+display(VisFemale)
+```
+This code outputs:
+
+| Name | Track | GEAS | Electronics | Average |
+|------|-------|------|-------------|---------|
+| S6   | Microelectronics | 86 | 45 | 75.50 |
+| S11  | Communication | 48 | 56 | 54.75 |
+| S21  | Microelectronics | 68 | 51 | 68.50 |
+| S22  | Communication | 89 | 39 | 62.50 |
+| S24  | Microelectronics | 60 | 45 | 57.75 |
+| S26  | Instrumentation | 83 | 47 | 65.75 |
+
+Lastly, we display the rows of ```VisFemale``` whose **Average** is at least 60 using the code:
+```python
+VisFemale.loc[VisFemale['Average']>60]
+```
+This outputs:
+| Name | Track | GEAS | Electronics | Average |
+|------|-------|------|-------------|---------|
+| S6   | Microelectronics | 86 | 45 | 75.50 |
+| S21  | Microelectronics | 68 | 51 | 68.50 |
+| S22  | Communication    | 89 | 39 | 62.50 |
+| S26  | Instrumentation  | 83 | 47 | 65.75 |
+
+
+
 
 ### **OVERALL STRUCTURE**
 
@@ -160,4 +224,5 @@ The third problem requires examining how the recorded Average differs across the
 # History
 
 September 14, 2026 - README.md file edited.
+
 September 11, 2026 - README.md file created.
