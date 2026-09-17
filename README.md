@@ -223,6 +223,8 @@ The third problem requires examining how the recorded Average differs across the
 
 # History
 
+September 17, 2026 - .ipynb file and .xlsx file were attached and README.md file was edited.
+
 September 14, 2026 - README.md file edited.
 
 September 11, 2026 - README.md file created.
