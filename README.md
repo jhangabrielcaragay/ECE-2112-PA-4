@@ -218,8 +218,58 @@ The third problem requires examining how the recorded Average differs across the
 
 ### **DISCUSSION**
 
+We first calculate the **mean** of the ```Average``` column for each category of ```Track``` using:
 
+```python
+Track_Average = board2.groupby('Track')['Average'].mean().reset_index()
+display(Track_Average)
+```
+> We group the students according to their ```Track```, select the ```Average``` column, and calculate the mean for each track. ```reset_index()``` converts the grouped result into a regular DataFrame, while ```display()``` shows the summary table.
 
+We then apply the same process to the students' ```Gender```:
+
+```python
+Gender_Average = board2.groupby('Gender')['Average'].mean().reset_index()
+display(Gender_Average)
+```
+> We group the students according to gender and calculate the mean of their ```Average``` for each group. The result is then converted into a DataFrame and displayed.
+
+Lastly, we group the students according to their ```Hometown```:
+```python
+Hometown_Average = board2.groupby('Hometown')['Average'].mean().reset_index()
+display(Hometown_Average)
+```
+
+> We group the students based on their hometown and calculate the mean of their ```Average``` for each category. The resulting summary is then converted into a DataFrame and displayed.
+
+We then create one figure containing three bar charts to visualize the mean ```Average``` for each category of ```Track```, ```Gender```, and ```Hometown``` using:
+
+```python
+plt.figure(figsize=(20,5))
+plt.subplot(1,3,1)
+plt.bar(Track_Average['Track'], Track_Average['Average'])
+plt.title('By Track')
+plt.xlabel("Track")
+plt.ylabel('Mean')
+
+plt.subplot(1,3,2)
+plt.bar(Gender_Average['Gender'], Gender_Average['Average'])
+plt.title('By Gender')
+plt.xlabel("Gender")
+plt.ylabel('Mean')
+
+plt.subplot(1,3,3)
+plt.bar(Hometown_Average['Hometown'], Hometown_Average['Average'])
+plt.title('By Hometown')
+plt.xlabel("Hometown")
+plt.ylabel('Mean')
+
+plt.text(-7.8, -12, 'Communication has the highest sample mean Average.')
+plt.text(-7.8, -15, 'Male has the highest sample mean Average.')
+plt.text(-7.8, -18, 'Luzon has the highest sample mean Average.')
+plt.show()
+```
+> We use ```plt.figure()``` to set the overall size of the figure and ```subplot()``` to arrange the three bar charts in one row. Each ```plt.bar()``` uses the corresponding summary DataFrame to display the mean ```Average``` for its categories. We then add titles and axis labels to identify each chart. Finally, ```plt.text()``` adds the three observations below the charts, and ```plt.show()``` displays the completed figure.
 
 
 ### **OVERALL STRUCTURE**
