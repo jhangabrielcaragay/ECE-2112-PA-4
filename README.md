@@ -49,6 +49,8 @@ The second problem requires creating ```VisFemale``` by filtering students from 
 
 ### **OBJECTIVE**
 
+The third problem requires examining how the recorded Average differs across the categorical features **Track**, **Gender**, and **Hometown**. For each feature, the **mean** of ```Average``` is computed for every category using ```Pandas```, and the resulting summary tables are displayed. A single figure is then created containing three ```bar charts``` showing the **mean Average** by **Track**, **Gender**, and **Hometown**. Finally, three **concise statements** identify the category with the highest sample mean for each feature based on the observed dataset.
+
 ### **DISCUSSION**
 
 ### **OVERALL STRUCTURE**
